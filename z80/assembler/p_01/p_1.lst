@@ -1,0 +1,76 @@
+---------------------------------------------
+OSHONSOFT Z80 ASSEMBLER LISTING
+Line   Addr Opcode      Label   Instruction
+---------------------------------------------
+0001   0000             ;Author:jlb
+0002   0000             ;display text of any lenght
+0003   0000             
+0004   0000             ;code segment starts here
+0005   0000             	.org 0000h
+0006   0000             	;program port
+0007   0000             	;Port A-> output, PortB-> output, Port C<- input
+0008   0000 3E 89       	ld a,89h
+0009   0002 D3 23       	out (CW),a
+0010   0004             	;init stack
+0011   0004 31 FF FF    	ld SP,ffffh
+0012   0007             	;-----------
+0013   0007 21 00 F8    	ld hl,text1	;point to text to display
+0014   000A CD 11 00    	call desp_text
+0015   000D CD 1E 00    	call lee_KEYB
+0016   0010 76          	halt
+0017   0011             ;subroutines
+0018   0011             
+0019   0011             desp_text:	;--init
+0020   0011 7E          	ld a,(hl)
+0021   0012 FE 26       	cp '&'
+0022   0014 CA 1D 00    	jp z,fin
+0023   0017 D3 20       	out (lcd),a
+0024   0019 23          	inc hl
+0025   001A C3 11 00    	jp desp_text
+0026   001D             fin:
+0027   001D C9          	ret	;--end
+0028   001E             
+0029   001E             lee_KEYB:
+0030   001E DB 22       	in a,(KEYB)
+0031   0020 FE 31       	cp '1'
+0032   0022 CC 2B 00    	call z,leds_izq
+0033   0025 FE 32       	cp '2'
+0034   0027 CC 35 00    	call z,leds_der
+0035   002A C9          	ret
+0036   002B             
+0037   002B             leds_izq:
+0038   002B 3E FF       	ld a,0ffh
+0039   002D             ciclo1:
+0040   002D D3 21       	out (LEDs),a
+0041   002F CB 27       	sla a
+0042   0031 C2 2D 00    	jp nz,ciclo1
+0043   0034 C9          	ret
+0044   0035             
+0045   0035             leds_der:
+0046   0035 3E FF       	ld a,0ffh
+0047   0037             ciclo2:
+0048   0037 D3 21       	out (LEDs),a
+0049   0039 CB 3F       	srl a
+0050   003B C2 37 00    	jp nz,ciclo2
+0051   003E C9          	ret
+0052   003F             
+0053   003F             ;data segment
+0054   003F             	.org f800h
+0055   F800 69 6E 67 72 text1:	.db "ingresa opcion (1:LEDs 2:LCD): &"
+0055   F804 65 73 61 20 
+0055   F808 6F 70 63 69 
+0055   F80C 6F 6E 20 28 
+0055   F810 31 3A 4C 45 
+0055   F814 44 73 20 32 
+0055   F818 3A 4C 43 44 
+0055   F81C 29 3A 20 26 
+0056   F820             
+0057   F820             ;constants
+0058   F820             LCD:	.equ 20h
+0059   F820             LEDs:	.equ 21h
+0060   F820             KEYB:	.equ 22h
+0061   F820             CW	.equ 23h
+0062   F820             
+0063   F820             ;program ends
+0064   F820             	.end
+Number of errors = 0
