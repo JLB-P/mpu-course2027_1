@@ -394,6 +394,16 @@
               <FileType>1</FileType>
               <FilePath>.\leds.c</FilePath>
             </File>
+            <File>
+              <FileName>exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\delay.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -403,6 +413,16 @@
               <FileName>leds.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\leds.h</FilePath>
+            </File>
+            <File>
+              <FileName>exti.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\exti.h</FilePath>
+            </File>
+            <File>
+              <FileName>delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\delay.h</FilePath>
             </File>
           </Files>
         </Group>

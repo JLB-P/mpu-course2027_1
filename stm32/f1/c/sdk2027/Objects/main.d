@@ -1,1 +1,1 @@
-./objects/main.o: main.c leds.h
+./objects/main.o: main.c leds.h exti.h
