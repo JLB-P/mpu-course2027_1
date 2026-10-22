@@ -3,6 +3,7 @@
 ".\objects\leds.o"
 ".\objects\exti.o"
 ".\objects\delay.o"
+".\objects\usart.o"
 ".\objects\startup_stm32f10x_md.o"
 ".\objects\system_stm32f10x.o"
 --strict --scatter ".\Objects\sdk2027.sct"

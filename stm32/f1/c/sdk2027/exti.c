@@ -37,8 +37,8 @@ void init_exti(void){
 	//Configure EXTI******************
 	//select PA0 source input for EXTI0 (pag 191 RM0008)
 	AFIO->EXTICR[0] &= ~((1 << 3)|(1 << 2)|(1 << 1)|(1 << 0));
-	//select trigger on rising edge (pag 213 RM0008)
-	EXTI->RTSR |= (1 << 0);
+	//select trigger on falling edge (pag 212 RM0008)
+	EXTI->FTSR |= (1 << 0);
 	//enable EXTI0 
 	EXTI->IMR |= (1 << 0);
 	//clear pending flag
