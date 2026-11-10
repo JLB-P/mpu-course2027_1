@@ -26,8 +26,7 @@ void init_adc1(void){
 	ADC1->SQR3 |= 1; //channel 1 in regular sequence register 3
 }
 
-uint16_t adc1_read(void)
-{
+uint16_t adc1_read(void){
     ADC1->CR2 |= (1 << 22); // SWSTART
     while (!(ADC1->SR & (1 << 1))); // Wait for end of conversion
     return (uint16_t)ADC1->DR;

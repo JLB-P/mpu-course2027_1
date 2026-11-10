@@ -1,6 +1,7 @@
 #include "leds.h"
 #include "exti.h"
 #include "usart.h"
+#include "dma.h"
 #include "delay.h"
 
 int main(){
@@ -14,6 +15,7 @@ int main(){
 	usart1_sendstring("enter character:");
 	delay_ms(1000);
 	uint8_t receivedbyte;	//variable to receive character
+	init_dma1();
 	while(1){
 		receivedbyte = usart1_receivebyte();
 		usart1_sendbyte('-');

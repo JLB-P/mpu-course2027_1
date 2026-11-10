@@ -414,6 +414,11 @@
               <FileType>1</FileType>
               <FilePath>.\adc.c</FilePath>
             </File>
+            <File>
+              <FileName>dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\dma.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -443,6 +448,11 @@
               <FileName>adc.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\adc.h</FilePath>
+            </File>
+            <File>
+              <FileName>dma.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\dma.h</FilePath>
             </File>
           </Files>
         </Group>
